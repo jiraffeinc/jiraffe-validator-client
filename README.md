@@ -1,0 +1,1 @@
+# smama-validator-client
