@@ -7,7 +7,8 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "test": "nyc mocha --require @babel/polyfill --require @babel/register \"test/**/*.spec.js\"",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "doc": "jsdoc ./lib/**/*.js -d ./docs"
   },
   "author": "jiraffe",
   "repository": "https://github.com/jiraffeinc/smama-validator-client",
@@ -30,6 +31,7 @@
     "eslint-loader": "^2.1.1",
     "expect": "^23.6.0",
     "expect.js": "^0.3.1",
+    "jsdoc": "^3.5.5",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",
     "webpack": "^4.27.1",

@@ -3,3 +3,4 @@ node_modules/
 spec/
 coverage/
 .travis.yml
+docs/
