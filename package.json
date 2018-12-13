@@ -48,6 +48,7 @@
     ]
   },
   "nyc": {
+    "all": true,
     "include": [
       "lib/**/*.js"
     ],
