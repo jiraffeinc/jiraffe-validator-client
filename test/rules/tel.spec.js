@@ -76,7 +76,6 @@ describe('validateTel', () => {
         expect(subject(value)).not.to.ok()
       })
     })
-
   })
 })
 

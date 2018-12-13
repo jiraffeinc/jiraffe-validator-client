@@ -29,6 +29,13 @@ describe('validateNumberRange', () => {
     })
   })
 
+  context('empty value', () => {
+    it('success', () => {
+      const value = ''
+      expect(subject(value, 100, 200)).to.ok()
+    })
+  })
+
   context('valid minimum value', () => {
     it('success', () => {
       const value = '100'
