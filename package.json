@@ -7,7 +7,7 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "test": "nyc mocha --require @babel/polyfill --require @babel/register \"test/**/*.spec.js\"",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
     "doc": "jsdoc ./lib/**/*.js -d ./docs"
   },
   "author": "jiraffe",
