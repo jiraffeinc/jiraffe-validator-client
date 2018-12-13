@@ -10,6 +10,7 @@ describe('validateEmail', () => {
     })
   })
 
+  //
   // context('mailgunで送れないメールアドレスのとき', () => {
   //   it('失敗', () => {
   //     input.value = 'あいうえおabcdefg@abcd.com'
