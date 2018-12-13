@@ -3,58 +3,47 @@ import {validateEmail, validateEmailFormat} from '../../lib/rules/email'
 
 describe('validateEmail', () => {
 
-  context('正常値のとき', () => {
-    it('成功', () => {
+  context('correct value', () => {
+    it('success', () => {
       const value = 'abcdefg@abcd.com'
       expect(validateEmail(value)).to.ok()
     })
   })
 
-  //
-  // context('mailgunで送れないメールアドレスのとき', () => {
-  //   it('失敗', () => {
-  //     input.value = 'あいうえおabcdefg@abcd.com'
-  //     const result = validateInputEmail(input)
-  //     const expected = {
-  //       isValid: false,
-  //       message: 'ご指定のメールアドレスは使用できません',
-  //       name: 'example',
-  //     }
-  //     assert.deepStrictEqual(result, expected)
-  //   })
-  // })
-  //
-  // context('ドメインが不正の時', () => {
-  //   it('失敗', () => {
-  //     input.value = 'abcdefg@abcd'
-  //     const result = validateInputEmail(input)
-  //     const expected = {
-  //       isValid: false,
-  //       message: 'ご指定のメールアドレスは使用できません',
-  //       name: 'example',
-  //     }
-  //     assert.deepStrictEqual(result, expected)
-  //   })
-  // })
-  //
-  // context('不正値のとき', () => {
-  //   it('失敗', () => {
-  //     input.value = '123cdcom'
-  //     const result = validateInputEmail(input)
-  //     const expected = {
-  //       isValid: false,
-  //       message: 'メールアドレスが不正です',
-  //       name: 'example',
-  //     }
-  //     assert.deepStrictEqual(result, expected)
-  //   })
-  // })
+  context('invalid value for mailgun', () => {
+    it('fail', () => {
+      const value = 'あいうえおabcdefg@abcd.com'
+      expect(validateEmail(value)).not.to.ok()
+    })
+  })
+
+  context('invalid domain', () => {
+    it('fail', () => {
+      const value = 'abcdefg@abcd'
+      expect(validateEmail(value)).not.to.ok()
+    })
+  })
+
+  context('invalid value', () => {
+    it('fail', () => {
+      const value = '123cdcom'
+      expect(validateEmail(value)).not.to.ok()
+    })
+  })
 })
+
 describe('validateEmailFormat', () => {
   context('正常値のとき', () => {
     it('成功', () => {
       const value = 'abcdefg@abcd.com'
       expect(validateEmailFormat(value)).to.ok()
+    })
+  })
+
+  context('invalid value', () => {
+    it('fail', () => {
+      const value = '123cdcom'
+      expect(validateEmail(value)).not.to.ok()
     })
   })
 })
