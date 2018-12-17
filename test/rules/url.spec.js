@@ -6,8 +6,22 @@ describe('validateNumber', () => {
 
   context('valid value', () => {
     it('success', () => {
-      const value = 'http://example.com'
+      const value = 'https://example.com'
       expect(subject(value)).to.ok()
+    })
+  })
+
+  context('no colon ', () => {
+    it('fail', () => {
+      const value = 'https;example.com'
+      expect(subject(value)).not.to.ok()
+    })
+  })
+
+  context('no domain ', () => {
+    it('fail', () => {
+      const value = 'https:example,com'
+      expect(subject(value)).not.to.ok()
     })
   })
 

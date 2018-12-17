@@ -7,28 +7,28 @@ describe('validateTel', () => {
   context('value include hyphen(-)', () => {
     context('9 digits value', () => {
       it('success', () => {
-        const value = '1234-5-6789'
+        const value = '0234-5-6789'
         expect(subject(value)).to.ok()
       })
     })
 
     context('11 digits value', () => {
       it('success', () => {
-        const value = '123-4567-8901'
+        const value = '023-4567-8901'
         expect(subject(value)).to.ok()
       })
     })
 
     context('8 digits value', () => {
       it('fail', () => {
-        const value = '123-4-8901'
+        const value = '023-4-8901'
         expect(subject(value)).not.to.ok()
       })
     })
 
     context('12 digits value', () => {
       it('fail', () => {
-        const value = '1234-4456-8901'
+        const value = '0234-4456-8901'
         expect(subject(value)).not.to.ok()
       })
     })
@@ -39,33 +39,40 @@ describe('validateTel', () => {
         expect(subject(value)).not.to.ok()
       })
     })
+
+    context('not zero start', () => {
+      it('fail', () => {
+        const value = '123-5-1343'
+        expect(subject(value)).not.to.ok()
+      })
+    })
   })
 
   context('value not include hyphen(-)', () => {
     context('9 digits value', () => {
       it('success', () => {
-        const value = '123456789'
+        const value = '023456789'
         expect(subject(value)).to.ok()
       })
     })
 
     context('11 digits value', () => {
       it('success', () => {
-        const value = '12345678901'
+        const value = '02345678901'
         expect(subject(value)).to.ok()
       })
     })
 
     context('8 digits value', () => {
       it('fail', () => {
-        const value = '12348901'
+        const value = '02348901'
         expect(subject(value)).not.to.ok()
       })
     })
 
     context('12 digits value', () => {
       it('fail', () => {
-        const value = '123444568901'
+        const value = '023444568901'
         expect(subject(value)).not.to.ok()
       })
     })
@@ -73,6 +80,13 @@ describe('validateTel', () => {
     context('invalid value', () => {
       it('fail', () => {
         const value = 'abcd121343'
+        expect(subject(value)).not.to.ok()
+      })
+    })
+
+    context('not zero start', () => {
+      it('fail', () => {
+        const value = '12351343'
         expect(subject(value)).not.to.ok()
       })
     })
