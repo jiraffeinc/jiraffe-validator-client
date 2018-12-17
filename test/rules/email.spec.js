@@ -33,8 +33,8 @@ describe('validateEmail', () => {
 })
 
 describe('validateEmailFormat', () => {
-  context('正常値のとき', () => {
-    it('成功', () => {
+  context('valide value', () => {
+    it('success', () => {
       const value = 'abcdefg@abcd.com'
       expect(validateEmailFormat(value)).to.ok()
     })
