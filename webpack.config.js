@@ -7,9 +7,9 @@ const { env } = require('process')
 
 module.exports = merge(sharedConfig, {
   mode: 'production',
-  entry: './index.js',
+  entry: './lib/index.js',
   output: {
-    filename: '[name].js',
+    filename: 'index.js',
     path:  path.join(__dirname, 'dist')
   },
   stats: 'normal',
