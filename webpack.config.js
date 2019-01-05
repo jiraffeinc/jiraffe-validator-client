@@ -10,7 +10,9 @@ module.exports = merge(sharedConfig, {
   entry: './lib/index.js',
   output: {
     filename: 'index.js',
-    path:  path.join(__dirname, 'dist')
+    path:  path.join(__dirname, 'dist'),
+    library: "jiraffe-validator",
+    libraryTarget: "umd"
   },
   stats: 'normal',
   plugins: [
